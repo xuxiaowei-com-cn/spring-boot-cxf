@@ -5,6 +5,9 @@ import cn.com.xuxiaowei.service.UserService;
 import cn.com.xuxiaowei.vo.UserVo;
 import org.springframework.stereotype.Service;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 
 /**
@@ -23,7 +26,9 @@ public class UserServiceImpl implements UserService {
      * @return 返回 用户
      */
     @Override
-    public UserVo getById(UserBo userBo) {
+    @WebMethod
+    @WebResult(name = "response")
+    public UserVo getById(@WebParam(name = "request") UserBo userBo) {
         UserVo userVo = new UserVo();
 
         String id = userBo.getId();
