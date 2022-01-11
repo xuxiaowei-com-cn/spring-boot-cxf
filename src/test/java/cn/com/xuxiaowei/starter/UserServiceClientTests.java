@@ -35,7 +35,9 @@ class UserServiceClientTests {
         WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
 
         SaajSoapMessageFactory saajSoapMessageFactory = new SaajSoapMessageFactory();
-        saajSoapMessageFactory.setSoapVersion(SoapVersion.SOAP_11);
+        // 当服务端为 CXF @BindingType(SOAPBinding.SOAP12HTTP_BINDING) 时，
+        // 使用 spring-boot-starter-web-services 作为客户端时，可以使用：SoapVersion.SOAP_11、SoapVersion.SOAP_12
+        saajSoapMessageFactory.setSoapVersion(SoapVersion.SOAP_12);
         saajSoapMessageFactory.afterPropertiesSet();
 
         webServiceTemplate.setMessageFactory(saajSoapMessageFactory);
