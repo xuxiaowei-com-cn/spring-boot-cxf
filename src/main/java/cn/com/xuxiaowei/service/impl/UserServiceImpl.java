@@ -9,6 +9,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.ws.BindingType;
+import javax.xml.ws.soap.SOAPBinding;
 
 /**
  * 用户 WebService 接口
@@ -16,6 +18,7 @@ import javax.jws.WebService;
  * @author 徐晓伟
  */
 @Service
+@BindingType(SOAPBinding.SOAP12HTTP_BINDING)
 @WebService(targetNamespace = "http://service.xuxiaowei.com.cn")
 public class UserServiceImpl implements UserService {
 
